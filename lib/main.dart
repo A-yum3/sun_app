@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sun_app/addtransacton.dart';
 import 'package:sun_app/tabs/home.dart';
 import 'package:sun_app/tabs/settings.dart';
 import 'package:sun_app/tabs/tips.dart';
@@ -20,7 +21,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class MyHome extends StatefulWidget {
   MyHome({Key key}) : super(key: key);
@@ -52,7 +52,14 @@ class _MyHomeState extends State<MyHome> {
       body: _widgetOptions.elementAt(_selectedIndex),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return AddTransaction();
+                },
+                fullscreenDialog: true,
+              ));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.orange,

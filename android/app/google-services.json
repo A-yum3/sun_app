@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "517130438855",
+    "firebase_url": "https://sunsun-app.firebaseio.com",
+    "project_id": "sunsun-app",
+    "storage_bucket": "sunsun-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517130438855:android:0ee2f07bfccf733cc8d6e2",
+        "android_client_info": {
+          "package_name": "com.upmauntains.sun_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517130438855-5l4qau4mj9slheg4rkuka2p4av4s6km2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo56bJTwzcQ6QgVlCeQam6HgeWcREaUE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517130438855-5l4qau4mj9slheg4rkuka2p4av4s6km2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
