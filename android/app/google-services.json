@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "517130438855",
-    "firebase_url": "https://sunsun-app.firebaseio.com",
-    "project_id": "sunsun-app",
-    "storage_bucket": "sunsun-app.appspot.com"
+    "project_number": "40875845373",
+    "firebase_url": "https://sunapp-77aa6.firebaseio.com",
+    "project_id": "sunapp-77aa6",
+    "storage_bucket": "sunapp-77aa6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:517130438855:android:0ee2f07bfccf733cc8d6e2",
+        "mobilesdk_app_id": "1:40875845373:android:219b75c140f79665c7c094",
         "android_client_info": {
-          "package_name": "com.upmauntains.sun_app"
+          "package_name": "com.upmountains.sun_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "517130438855-5l4qau4mj9slheg4rkuka2p4av4s6km2.apps.googleusercontent.com",
+          "client_id": "40875845373-dr94bvq3tmklc4bu0qvnt562enl708hu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDo56bJTwzcQ6QgVlCeQam6HgeWcREaUE4"
+          "current_key": "AIzaSyAkFUM4hR2hZ6BFkvSu6hpRfvfndu0KNeI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "517130438855-5l4qau4mj9slheg4rkuka2p4av4s6km2.apps.googleusercontent.com",
+              "client_id": "40875845373-dr94bvq3tmklc4bu0qvnt562enl708hu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

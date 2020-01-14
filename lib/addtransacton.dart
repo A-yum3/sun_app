@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:sun_app/database_helper.dart';
 
 
 class AddTransaction extends StatefulWidget {
@@ -10,11 +11,11 @@ class AddTransaction extends StatefulWidget {
 class _AddTransactionState extends State<AddTransaction> {
   TextEditingController _tcontroller;
   DateTime selectedDate = DateTime.now();
+  final dbHelper = DatabaseHelper.instance;
 
   void initState() {
     super.initState();
     _tcontroller = TextEditingController();
-
   }
 
   void dispose() {
@@ -48,6 +49,16 @@ class _AddTransactionState extends State<AddTransaction> {
     fontSize: 20.0,
     fontStyle: FontStyle.italic,
   );
+
+  void _insert(String url, DateTime date) async {
+    Map<String, dynamic> row ={
+      DatabaseHelper.columnurl :url,
+      DatabaseHelper.columndate: date.toString(),
+    };
+    final id = await dbHelper.insert(row);
+    print('inserted row id: $id');
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +108,7 @@ class _AddTransactionState extends State<AddTransaction> {
                         fontSize: 40.0
                       ),),
                       onPressed: () {
+                        _insert(_tcontroller.text, selectedDate);
                         // selectedDate と _tcontrollerを受け渡して画面を閉じる
                         Navigator.of(context).pop();
                       },

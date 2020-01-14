@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:sun_app/database_helper.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 final Map<DateTime, List> _holidays = {
   DateTime(2019, 1, 1): ['New Year\'s Day'],
@@ -19,14 +22,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   List _selectedEvents;
   AnimationController _animationController;
   CalendarController _calendarController;
+  final dbHelper = DatabaseHelper.instance;
 
   @override
   void initState() {
     super.initState();
     final _selectedDay = DateTime.now();
+    _events = Map<DateTime, List>();
 
-    // ここにイベントを作成したら追加するように変更
-    _events = {};
+    _query();
 
     _selectedEvents = _events[_selectedDay] ?? [];
     _calendarController = CalendarController();
@@ -44,6 +48,26 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _animationController.dispose();
     _calendarController.dispose();
     super.dispose();
+  }
+
+
+  void _query() async {
+    final allRows = await dbHelper.queryAllRows();
+    print('query all rows:');
+    for (var i = 0; i < allRows.length; i++) {
+      DateTime date = DateTime.parse(allRows[i]['date']);
+      _events[date] = new List();
+      _events[date].add(allRows[i]['url']);
+    }
+    allRows.forEach((row) => print(row));
+    print(_events);
+  }
+
+  void _delete() async {
+    // Assuming that the number of rows is the id for the last row.
+    final id = await dbHelper.queryRowCount();
+    final rowsDeleted = await dbHelper.delete(id);
+    print('deleted $rowsDeleted row(s): row $id');
   }
 
   void createEvent(DateTime date, String url) {
@@ -82,6 +106,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           _buildButtons(),
           const SizedBox(height: 8.0),
           Expanded(child: _buildEventList()),
+          RaisedButton(
+            child: Text("Delete"),
+            onPressed: _delete,
+          )
         ],
       ),
     );
